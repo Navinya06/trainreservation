@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>RailReserve | Passengers</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+
+<header class="navbar">
+
+    <a href="index.html" class="brand">
+
+        <span class="brand-icon">
+            🚆
+        </span>
+
+        <div>
+            <strong>RailReserve</strong>
+            <small>Smart Train Booking</small>
+        </div>
+
+    </a>
+
+
+    <nav>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="trains.html">
+            Trains
+        </a>
+
+        <a href="routes.html">
+            Routes
+        </a>
+
+        <a href="passengers.html"
+           class="active">
+
+            Passengers
+
+        </a>
+
+        <a href="reservation.html"
+           class="nav-book">
+
+            Book Ticket
+
+        </a>
+
+    </nav>
+
+</header>
+
+
+<main>
+
+    <section class="page-hero">
+
+        <span>
+            👤 PASSENGER MANAGEMENT
+        </span>
+
+        <h1>
+            Passenger directory.
+        </h1>
+
+        <p>
+            View registered passengers and
+            their information.
+        </p>
+
+    </section>
+
+
+    <section class="section">
+
+        <div class="page-toolbar">
+
+            <div>
+
+                <span class="eyebrow-dark">
+                    REGISTERED USERS
+                </span>
+
+                <h2>
+                    Passengers
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="table-card">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            ID
+                        </th>
+
+                        <th>
+                            Passenger
+                        </th>
+
+                        <th>
+                            Age
+                        </th>
+
+                        <th>
+                            Gender
+                        </th>
+
+                        <th>
+                            Phone
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="passengerTable">
+
+                    <tr>
+
+                        <td colspan="5"
+                            class="table-loading">
+
+                            Loading passengers...
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <div class="footer-brand">
+        🚆 <strong>RailReserve</strong>
+    </div>
+
+    <p>
+        Smart Train Ticket Reservation System
+    </p>
+
+    <p class="copyright">
+        © 2026 RailReserve.
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

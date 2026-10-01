@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>RailReserve | Book Ticket</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+
+<header class="navbar">
+
+    <a href="index.html" class="brand">
+
+        <span class="brand-icon">
+            🚆
+        </span>
+
+        <div>
+            <strong>RailReserve</strong>
+            <small>Smart Train Booking</small>
+        </div>
+
+    </a>
+
+
+    <nav>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="trains.html">
+            Trains
+        </a>
+
+        <a href="routes.html">
+            Routes
+        </a>
+
+        <a href="passengers.html">
+            Passengers
+        </a>
+
+        <a href="reservation.html"
+           class="active nav-book">
+
+            Book Ticket
+
+        </a>
+
+    </nav>
+
+</header>
+
+
+<main>
+
+    <section class="page-hero booking-header">
+
+        <span>
+            🎫 RESERVATION
+        </span>
+
+        <h1>
+            Reserve your journey.
+        </h1>
+
+        <p>
+            Select your passenger, train, route
+            and number of seats.
+        </p>
+
+    </section>
+
+
+    <section class="booking-section">
+
+
+        <div class="booking-card">
+
+
+            <div class="booking-card-header">
+
+                <div>
+
+                    <span class="eyebrow-dark">
+                        STEP 01
+                    </span>
+
+                    <h2>
+                        Journey Details
+                    </h2>
+
+                </div>
+
+
+                <div class="booking-icon">
+                    🎫
+                </div>
+
+            </div>
+
+
+            <form id="reservationForm">
+
+
+                <div class="form-group">
+
+                    <label>
+                        Passenger
+                    </label>
+
+                    <select id="passengerId"
+                            required>
+
+                        <option value="">
+                            Select passenger
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Train
+                    </label>
+
+                    <select id="trainId"
+                            required>
+
+                        <option value="">
+                            Select train
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Route
+                    </label>
+
+                    <select id="routeId"
+                            required>
+
+                        <option value="">
+                            Select route
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Number of Seats
+                    </label>
+
+                    <input
+                        type="number"
+                        id="seats"
+                        min="1"
+                        max="10"
+                        placeholder="Enter seats"
+                        required
+                    >
+
+                </div>
+
+
+                <button type="submit"
+                        class="booking-button">
+
+                    Confirm Reservation
+                    →
+
+                </button>
+
+
+            </form>
+
+
+            <div id="reservationMessage"
+                 class="reservation-message">
+
+            </div>
+
+        </div>
+
+
+        <!-- SIDE INFORMATION -->
+
+        <div class="booking-info">
+
+
+            <div class="info-card dark">
+
+                <span class="info-icon">
+                    ✦
+                </span>
+
+                <h3>
+                    Travel with ease.
+                </h3>
+
+                <p>
+                    Your reservation is processed
+                    securely through the RailReserve
+                    booking system.
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <span class="info-icon">
+                    💳
+                </span>
+
+                <h3>
+                    Transparent Fare
+                </h3>
+
+                <p>
+                    Your ticket fare is calculated
+                    automatically based on the
+                    selected route and seats.
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <span class="info-icon">
+                    🔒
+                </span>
+
+                <h3>
+                    Secure Reservation
+                </h3>
+
+                <p>
+                    Seat availability is updated
+                    automatically after booking.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <div class="footer-brand">
+        🚆 <strong>RailReserve</strong>
+    </div>
+
+    <p>
+        Smart Train Ticket Reservation System
+    </p>
+
+    <p class="copyright">
+        © 2026 RailReserve.
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
