@@ -2,142 +2,136 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <title>RailReserve | Routes</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RailReserve | Book Ticket</title>
     <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
 
-
-<header class="navbar">
-
-    <a href="index.html" class="brand">
-
-        <span class="brand-icon">
-            🚆
-        </span>
-
-        <div>
-            <strong>RailReserve</strong>
-            <small>Smart Train Booking</small>
-        </div>
-
-    </a>
-
-
-    <nav>
-
-        <a href="index.html">
-            Home
-        </a>
-
-        <a href="trains.html">
-            Trains
-        </a>
-
-        <a href="routes.html"
-           class="active">
-
-            Routes
-
-        </a>
-
-        <a href="passengers.html">
-            Passengers
-        </a>
-
-        <a href="reservation.html"
-           class="nav-book">
-
-            Book Ticket
-
-        </a>
-
-    </nav>
-
-</header>
-
-
-<main>
-
-    <section class="page-hero">
-
-        <span>
-            🛤️ ROUTE EXPLORER
-        </span>
-
-        <h1>
-            Explore your route.
-        </h1>
-
-        <p>
-            Discover destinations and travel
-            distances across our railway network.
-        </p>
-
-    </section>
-
-
-    <section class="section">
-
-        <div class="page-toolbar">
-
+    <header class="navbar">
+        <a href="index.html" class="brand">
+            <span class="brand-icon">🚆</span>
             <div>
+                <strong>RailReserve</strong>
+                <small>Smart Train Booking</small>
+            </div>
+        </a>
 
-                <span class="eyebrow-dark">
-                    JOURNEY NETWORK
-                </span>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="trains.html">Trains</a>
+            <a href="routes.html">Routes</a>
+            <a href="passengers.html">Passengers</a>
+            <a href="reservation.html" class="nav-book active">Book Ticket</a>
+        </nav>
+    </header>
 
-                <h2>
-                    Available Routes
-                </h2>
+    <main>
+        <section class="page-hero">
+            <span>🎫 TICKET RESERVATION</span>
+            <h1>Reserve your seat.</h1>
+            <p>Choose a passenger, train and route. Your fare is calculated instantly.</p>
+        </section>
 
+        <section class="booking-section">
+            <div class="booking-card">
+                <div class="booking-card-header">
+                    <div>
+                        <span class="eyebrow-dark">NEW BOOKING</span>
+                        <h2>Passenger &amp; journey details</h2>
+                    </div>
+                    <div class="booking-icon">🎫</div>
+                </div>
+
+                <form id="reservationForm" autocomplete="off">
+                    <div class="form-group">
+                        <label for="passengerId">Passenger</label>
+                        <select id="passengerId" required><option value="">Loading...</option></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="trainId">Train</label>
+                        <select id="trainId" required><option value="">Loading...</option></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="routeId">Route</label>
+                        <select id="routeId" required disabled><option value="">Select a train first</option></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="seats">Number of seats</label>
+                        <input id="seats" type="number" min="1" value="1" required>
+                    </div>
+
+                    <div class="fare-box" aria-live="polite">
+                        <div><small>Estimated fare</small></div>
+                        <strong id="fareAmount">₹0.00</strong>
+                    </div>
+
+                    <button type="submit" id="bookBtn" class="booking-button">Confirm reservation</button>
+                    <p id="reservationMessage" class="form-message" role="status"></p>
+                </form>
             </div>
 
-        </div>
+            <aside class="booking-info">
+                <div class="info-card dark">
+                    <div class="info-icon">💳</div>
+                    <h3>Fare calculation</h3>
+                    <p>Fare = route distance × ₹1.50 per km × number of seats.</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">💺</div>
+                    <h3>Live seat count</h3>
+                    <p>Available seats on the train go down automatically after every confirmed booking.</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">🔒</div>
+                    <h3>Saved securely</h3>
+                    <p>Every reservation is stored in the database and shown in the table below.</p>
+                </div>
+            </aside>
+        </section>
 
-
-        <div id="routeContainer"
-             class="route-grid">
-
-            <div class="loading-card">
-                Loading routes...
+        <section class="section stack-section">
+            <div class="page-toolbar">
+                <div>
+                    <span class="eyebrow-dark">ALL BOOKINGS</span>
+                    <h2>Reservations</h2>
+                </div>
             </div>
+            <div class="table-card">
+                <table>
+                    <thead>
+                        <tr><th>ID</th><th>Passenger</th><th>Train</th><th>From</th><th>To</th><th>Seats</th><th>Fare</th><th>Date</th></tr>
+                    </thead>
+                    <tbody id="reservationTable"><tr><td colspan="8" class="table-loading">Loading reservations...</td></tr></tbody>
+                </table>
+            </div>
+        </section>
 
-        </div>
+        <section class="section stack-section">
+            <div class="page-toolbar">
+                <div>
+                    <span class="eyebrow-dark">MOST POPULAR</span>
+                    <h2>Trains with above-average bookings</h2>
+                </div>
+            </div>
+            <div class="table-card">
+                <table>
+                    <thead><tr><th>Train ID</th><th>Train</th><th>Reservations</th></tr></thead>
+                    <tbody id="aboveAverageTable2"><tr><td colspan="3" class="table-loading">Loading...</td></tr></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
 
-    </section>
+    <footer>
+        <div class="footer-brand">🚆 <strong>RailReserve</strong></div>
+        <p>Smart Train Ticket Reservation System</p>
+        <p class="copyright">© 2026 RailReserve. Built with Spring Boot &amp; MySQL.</p>
+    </footer>
 
-</main>
-
-
-<footer>
-
-    <div class="footer-brand">
-        🚆 <strong>RailReserve</strong>
-    </div>
-
-    <p>
-        Smart Train Ticket Reservation System
-    </p>
-
-    <p class="copyright">
-        © 2026 RailReserve.
-    </p>
-
-</footer>
-
-
-<script src="script.js"></script>
-
+    <script src="script.js"></script>
 </body>
 
 </html>
